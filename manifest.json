@@ -10,7 +10,7 @@
     "copy-clean-url": {
       "description": "Copy cleaned URL",
       "suggested_key": {
-        "default": "Ctrl+Shift+C"
+        "default": "Ctrl+Shift+Y"
       }
     }
   }

@@ -12,14 +12,14 @@
 
 - [x] Create `manifest.json` using Manifest V3
 - [ ] Add required permissions
-- [ ] Add background service worker
-- [ ] Add command definition for keyboard shortcuts
-- [ ] Load extension as unpacked in Brave
-- [ ] Confirm extension installs successfully
+- [x] Add background service worker
+- [x] Add command definition for keyboard shortcuts
+- [x] Load extension as unpacked in Brave
+- [x] Confirm extension installs successfully
 
 ## Phase 2 - Core behavior
 
-- [ ] Detect command shortcut event
+- [ ] Add command listener in background.js
 - [ ] Query current active tab
 - [ ] Read current tab URL
 - [ ] Handle unsupported URLs safely
