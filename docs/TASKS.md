@@ -24,7 +24,7 @@
 - [x] Read current tab URL
 - [ ] Handle unsupported URLs safely
 - [x] Pass URL into cleaner function
-- [ ] Copy cleaned URL to clipboard
+- [x] Copy cleaned URL to clipboard
 - [ ] Add basic success feedback
 - [ ] Add basic failure feedback
 

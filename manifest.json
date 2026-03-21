@@ -7,7 +7,9 @@
     "service_worker": "src/background.js"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "offscreen",
+    "clipboardWrite"
   ],
   "commands": {
     "copy-clean-url": {

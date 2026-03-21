@@ -35,3 +35,9 @@ User-configurable rules and UI will be postponed until the core behavior works.
 Reason:
 Configuration adds complexity and should only be introduced after the basic product is stable.
 
+## Decision 006 - Use an offscreen document for clipboard writes
+
+Clipboard writes are implemented via an offscreen document rather than directly in the service worker.
+
+Reason:
+Manifest V3 service workers do not have DOM access. Chrome's offscreen document API is the recommended mechanism DOM-dependent clipboard operations in an extension context.
