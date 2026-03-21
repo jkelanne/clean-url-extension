@@ -8,3 +8,11 @@ function shouldRemoveParam(paramName) {
 
   return prefixRemovableParams.some((prefix) => paramName.startsWith(prefix));
 }
+
+if (typeof globalThis !== "undefined") {
+  globalThis.shouldRemoveParam = shouldRemoveParam;
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { shouldRemoveParam };
+}
