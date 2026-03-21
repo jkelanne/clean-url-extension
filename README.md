@@ -121,4 +121,5 @@ As a user, I want to press a shortcut and copy a clean version of the current pa
 - the extension does not fail silently
 - the behavior is consistent across repeated tests
 
+## Notes
 
