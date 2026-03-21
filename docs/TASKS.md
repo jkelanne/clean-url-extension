@@ -23,18 +23,18 @@
 - [x] Query current active tab
 - [x] Read current tab URL
 - [ ] Handle unsupported URLs safely
-- [ ] Pass URL into cleaner function
+- [x] Pass URL into cleaner function
 - [ ] Copy cleaned URL to clipboard
 - [ ] Add basic success feedback
 - [ ] Add basic failure feedback
 
 ## Phase 3 - URL cleaner
 
-- [ ] Create pure `cleanUrl(url)` function
+- [x] Create pure `cleanUrl(url)` function
 - [ ] Define initial removable parameter list
-- [ ] Remove `utm_*` parameters
-- [ ] Remove `fbclid` 
-- [ ] Remove `gclid`
+- [x] Remove `utm_*` parameters
+- [x] Remove `fbclid` 
+- [x] Remove `gclid`
 - [ ] Remove `dclid`
 - [ ] Remove `mc_cid`
 - [ ] Remove `mc_eid`
