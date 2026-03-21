@@ -1,0 +1,21 @@
+{
+  "name": "clean-url-extension",
+  "version": "1.0.0",
+  "description": "A small Chromium-compatible browser extension for Brave/Chrome that copies a cleaned version of the current page URL to the clipboard.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0"
+  }
+}
