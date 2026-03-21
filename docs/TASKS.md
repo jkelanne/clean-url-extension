@@ -2,7 +2,7 @@
 
 ## Phase 0 - Project setup
 
-- [ ] Create repository
+- [x] Create repository
 - [x] Add README.md
 - [x] Add docs/TASKS.md
 - [x] Add docs/ARCHITECTURE.md
@@ -10,7 +10,7 @@
 
 ## Phase 1 - MVP scaffold
 
-- [ ] Create `manifest.json` using Manifest V3
+- [x] Create `manifest.json` using Manifest V3
 - [ ] Add required permissions
 - [ ] Add background service worker
 - [ ] Add command definition for keyboard shortcuts

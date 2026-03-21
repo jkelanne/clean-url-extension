@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Clean URL Copier",
+  "description": "Copies a cleaned version of the current tab URL.",
+  "version": "0.1.0",
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "commands": {
+    "copy-clean-url": {
+      "description": "Copy cleaned URL",
+      "suggested_key": {
+        "default": "Ctrl+Shift+C"
+      }
+    }
+  }
+}
