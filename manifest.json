@@ -6,6 +6,9 @@
   "background": {
     "service_worker": "src/background.js"
   },
+  "permissions": [
+    "tabs"
+  ],
   "commands": {
     "copy-clean-url": {
       "description": "Copy cleaned URL",

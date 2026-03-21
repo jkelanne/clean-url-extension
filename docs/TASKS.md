@@ -11,7 +11,7 @@
 ## Phase 1 - MVP scaffold
 
 - [x] Create `manifest.json` using Manifest V3
-- [ ] Add required permissions
+- [x] Add required permissions
 - [x] Add background service worker
 - [x] Add command definition for keyboard shortcuts
 - [x] Load extension as unpacked in Brave
@@ -19,9 +19,9 @@
 
 ## Phase 2 - Core behavior
 
-- [ ] Add command listener in background.js
-- [ ] Query current active tab
-- [ ] Read current tab URL
+- [x] Add command listener in background.js
+- [x] Query current active tab
+- [x] Read current tab URL
 - [ ] Handle unsupported URLs safely
 - [ ] Pass URL into cleaner function
 - [ ] Copy cleaned URL to clipboard
