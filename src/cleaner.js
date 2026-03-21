@@ -1,8 +1,10 @@
+importScripts("rules.js");
+
 function cleanUrl(url) {
   const parsedUrl = new URL(url);
 
   for (const key of [...parsedUrl.searchParams.keys()]) {
-    if (key.startsWith("utm_") || key === "fbclid" || key === "gclid") {
+    if (shouldRemoveParam(key)) {
       parsedUrl.searchParams.delete(key);
     }
   }
