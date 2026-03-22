@@ -85,8 +85,9 @@ createContextMenu();
 
 chrome.contextMenus.onClicked.addListener(async (info) => {
   if (info.menuItemId === COPY_CLEAN_URL_MENU_ID) {
-    await copyCleanUrl(info.linkUrl || null);
-    if (!info.linkUrl) {
+    if (info.linkUrl) {
+      await copyCleanUrl(info.linkUrl);
+    } else {
       await copyCleanUrlFromActiveTab();
     }
   }
