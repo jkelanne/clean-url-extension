@@ -1,6 +1,25 @@
 importScripts("cleaner.js");
 
 const OFFSCREEN_DOCUMENT_PATH = "src/offscreen.html";
+const COPY_CLEAN_URL_MENU_ID = "copy-clean-url";
+
+function createContextMenu() {
+  chrome.contextMenus.create(
+    {
+      id: COPY_CLEAN_URL_MENU_ID,
+      title: "Copy Clean URL",
+      contexts: ["page"]
+    },
+    () => {
+      if (
+        chrome.runtime.lastError &&
+        !chrome.runtime.lastError.message.includes("duplicate id")
+      ) {
+        console.error("Context menu creation failed", chrome.runtime.lastError);
+      }
+    }
+  );
+}
 
 async function ensureOffscreenDocument() {
   const offscreenUrl = chrome.runtime.getURL(OFFSCREEN_DOCUMENT_PATH);
@@ -31,27 +50,46 @@ async function copyToClipboard(text) {
   }
 }
 
+async function copyCleanUrlFromActiveTab() {
+  const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+  const originalUrl = tabs[0]?.url;
+
+  if (!originalUrl) {
+    return;
+  }
+
+  const cleanedUrl = cleanUrl(originalUrl);
+
+  console.log("Original URL:", originalUrl);
+  console.log("Cleaned URL:", cleanedUrl);
+
+  try {
+    await copyToClipboard(cleanedUrl);
+    console.log("Clipboard copy succeeded");
+  } catch (error) {
+    console.error("Clipboard copy failed", error);
+  }
+}
+
+chrome.runtime.onInstalled.addListener(() => {
+  createContextMenu();
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  createContextMenu();
+});
+
+createContextMenu();
+
+chrome.contextMenus.onClicked.addListener(async (info) => {
+  if (info.menuItemId === COPY_CLEAN_URL_MENU_ID) {
+    await copyCleanUrlFromActiveTab();
+  }
+});
+
 chrome.commands.onCommand.addListener(async (command) => {
   if (command === "copy-clean-url") {
     console.log("copy-clean-url command triggered");
-
-    const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-    const originalUrl = tabs[0]?.url;
-
-    if (!originalUrl) {
-      return;
-    }
-
-    const cleanedUrl = cleanUrl(originalUrl);
-
-    console.log("Original URL:", originalUrl);
-    console.log("Cleaned URL:", cleanedUrl);
-
-    try {
-      await copyToClipboard(cleanedUrl);
-      console.log("Clipboard copy succeeded");
-    } catch (error) {
-      console.error("Clipboard copy failed", error);
-    }
+    await copyCleanUrlFromActiveTab();
   }
 });

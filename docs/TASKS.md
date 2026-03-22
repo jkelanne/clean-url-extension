@@ -63,7 +63,16 @@
 - [ ] Test invalid URL handling
 - [ ] Test idempotency where applicable
 
-## Phase 6 - Polish
+## Phase 6 - Next usability features
+- [x] Add context menu item: "Copy Clean URL" to "page"
+- [x] Handle context menu click in background service worker
+- [x] Reuse existing URL cleaning and clipboard flow from context menu action
+- [x] Manually test context menu behavior on normal web pages
+- [ ] Add context menu item "Copy Clean URL" to link
+- [ ] Expand removable tracking parameters
+- [ ] Review whether popup UI is still needed
+
+## Phase 7 - Polish
 
 - [ ] Improve shortcut naming and documentation
 - [ ] Add extension icons
@@ -73,7 +82,7 @@
 - [ ] Improve error messages
 - [ ] Add install/use instructions to README
 
-## Phase 7 - Optional post-MVP
+## Phase 8 - Optional post-MVP
 
 - [ ] Add popup with "Copy clean URL" button
 - [ ] Add options page

@@ -9,7 +9,8 @@
   "permissions": [
     "tabs",
     "offscreen",
-    "clipboardWrite"
+    "clipboardWrite",
+    "contextMenus"
   ],
   "commands": {
     "copy-clean-url": {
