@@ -8,7 +8,7 @@ function createContextMenu() {
     {
       id: COPY_CLEAN_URL_MENU_ID,
       title: "Copy Clean URL",
-      contexts: ["page"]
+      contexts: ["page", "link"]
     },
     () => {
       if (
@@ -50,10 +50,7 @@ async function copyToClipboard(text) {
   }
 }
 
-async function copyCleanUrlFromActiveTab() {
-  const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-  const originalUrl = tabs[0]?.url;
-
+async function copyCleanUrl(originalUrl) {
   if (!originalUrl) {
     return;
   }
@@ -71,6 +68,11 @@ async function copyCleanUrlFromActiveTab() {
   }
 }
 
+async function copyCleanUrlFromActiveTab() {
+  const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
+  await copyCleanUrl(tabs[0]?.url);
+}
+
 chrome.runtime.onInstalled.addListener(() => {
   createContextMenu();
 });
@@ -83,7 +85,10 @@ createContextMenu();
 
 chrome.contextMenus.onClicked.addListener(async (info) => {
   if (info.menuItemId === COPY_CLEAN_URL_MENU_ID) {
-    await copyCleanUrlFromActiveTab();
+    await copyCleanUrl(info.linkUrl || null);
+    if (!info.linkUrl) {
+      await copyCleanUrlFromActiveTab();
+    }
   }
 });
 
