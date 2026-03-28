@@ -10,7 +10,8 @@
     "tabs",
     "offscreen",
     "clipboardWrite",
-    "contextMenus"
+    "contextMenus",
+    "notifications"
   ],
   "commands": {
     "copy-clean-url": {

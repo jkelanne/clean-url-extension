@@ -25,13 +25,13 @@
 - [ ] Handle unsupported URLs safely
 - [x] Pass URL into cleaner function
 - [x] Copy cleaned URL to clipboard
-- [ ] Add basic success feedback
-- [ ] Add basic failure feedback
+- [x] Add basic success feedback (console.log)
+- [x] Add basic failure feedback (console.log)
 
 ## Phase 3 - URL cleaner
 
 - [x] Create pure `cleanUrl(url)` function
-- [ ] Define initial removable parameter list
+- [x] Define initial removable parameter list
 - [x] Remove `utm_*` parameters
 - [x] Remove `fbclid` 
 - [x] Remove `gclid`
@@ -44,19 +44,19 @@
 
 ## Phase 4 - Manual testing
 
-- [ ] Test on plain URL with no query parameters
-- [ ] Test on URL with `utm_*`
-- [ ] Test on URL with multiple mixed parameters
+- [x] Test on plain URL with no query parameters
+- [x] Test on URL with `utm_*`
+- [x] Test on URL with multiple mixed parameters
 - [ ] Test on YouTube
 - [ ] Test on news sites
 - [ ] Test on e-commerce URLs
 - [ ] Test behavior on internal browser pages
-- [ ] Verify clipboard content after copy
+- [x] Verify clipboard content after copy
 
 ## Phase 5 - Unit tests
 
-- [ ] Add test framework
-- [ ] Add test for `cleanUrl(url)`
+- [x] Add test framework
+- [x] Add test for `cleanUrl(url)`
 - [ ] Add fixture-based test cases
 - [ ] Test preservation of important parameters
 - [ ] Test removal of known tracking parameters
@@ -68,7 +68,7 @@
 - [x] Handle context menu click in background service worker
 - [x] Reuse existing URL cleaning and clipboard flow from context menu action
 - [x] Manually test context menu behavior on normal web pages
-- [ ] Add context menu item "Copy Clean URL" to link
+- [x] Add context menu item "Copy Clean URL" to link
 - [ ] Expand removable tracking parameters
 - [ ] Review whether popup UI is still needed
 
@@ -76,7 +76,8 @@
 
 - [ ] Improve shortcut naming and documentation
 - [ ] Add extension icons
-- [ ] Add better user feedback
+- [ ] Add system notifications for success and failure
+- [ ] Replace console.log feedback with notifications where appropriate
 - [ ] Review permissions and reduce if possible
 - [ ] Clean code structure
 - [ ] Improve error messages

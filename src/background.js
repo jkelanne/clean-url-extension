@@ -2,6 +2,8 @@ importScripts("cleaner.js");
 
 const OFFSCREEN_DOCUMENT_PATH = "src/offscreen.html";
 const COPY_CLEAN_URL_MENU_ID = "copy-clean-url";
+const COPY_NOTIFICATION_ID = "clean-url-copy-status";
+const NOTIFICATION_ICON_PATH = "src/icons/notification-128.png";
 
 function createContextMenu() {
   chrome.contextMenus.create(
@@ -50,6 +52,20 @@ async function copyToClipboard(text) {
   }
 }
 
+async function showCopyNotification(message) {
+  try {
+    await chrome.notifications.create(COPY_NOTIFICATION_ID, {
+      type: "basic",
+      iconUrl: chrome.runtime.getURL(NOTIFICATION_ICON_PATH),
+      title: "Clean URL Copier",
+      requireInteraction: false,
+      message
+    });
+  } catch (error) {
+    console.error("Notification failed", error);
+  }
+}
+
 async function copyCleanUrl(originalUrl) {
   if (!originalUrl) {
     return;
@@ -63,8 +79,10 @@ async function copyCleanUrl(originalUrl) {
   try {
     await copyToClipboard(cleanedUrl);
     console.log("Clipboard copy succeeded");
+    await showCopyNotification("Clean URL copied");
   } catch (error) {
     console.error("Clipboard copy failed", error);
+    await showCopyNotification("Failed to copy clean URL");
   }
 }
 
