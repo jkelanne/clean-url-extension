@@ -1,5 +1,5 @@
-const exactMatchRemovableParams = new Set(["fbclid", "gclid"]);
-const prefixRemovableParams = ["utm_"];
+const exactMatchRemovableParams = new Set(["fbclid", "gclid", "dclid", "igshid"]);
+const prefixRemovableParams = ["utm_", "mc_"];
 
 function shouldRemoveParam(paramName) {
   if (exactMatchRemovableParams.has(paramName)) {

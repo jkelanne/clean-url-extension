@@ -14,6 +14,12 @@ test("removes utm_* params", () => {
   assert.equal(cleanUrl(input), expected);
 });
 
+test("removes mc_* params", () => {
+  const input = "https://example.com/page?mc_cid=abc123&mc_eid=def456&ref=ok";
+  const expected = "https://example.com/page?ref=ok";
+  assert.equal(cleanUrl(input), expected);
+});
+
 test("removes only tracking params from mixed query", () => {
   const input = "https://example.com/page?utm_source=x&ref=abc&id=123&utm_campaign=spring";
   const expected = "https://example.com/page?ref=abc&id=123";
@@ -28,6 +34,18 @@ test("removes fbclid param", () => {
 
 test("removes gclid param", () => {
   const input = "https://example.com/page?gclid=xyz789&ref=ok";
+  const expected = "https://example.com/page?ref=ok";
+  assert.equal(cleanUrl(input), expected);
+});
+
+test("removes dclid param", () => {
+  const input = "https://example.com/page?dclid=xyz789&ref=ok";
+  const expected = "https://example.com/page?ref=ok";
+  assert.equal(cleanUrl(input), expected);
+});
+
+test("removes igshid param", () => {
+  const input = "https://example.com/page?igshid=abc123&ref=ok";
   const expected = "https://example.com/page?ref=ok";
   assert.equal(cleanUrl(input), expected);
 });

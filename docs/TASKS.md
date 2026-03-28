@@ -35,9 +35,10 @@
 - [x] Remove `utm_*` parameters
 - [x] Remove `fbclid` 
 - [x] Remove `gclid`
-- [ ] Remove `dclid`
-- [ ] Remove `mc_cid`
-- [ ] Remove `mc_eid`
+- [x] Remove `dclid`
+- [x] Remove `mc_cid`
+- [x] Remove `mc_eid`
+- [x] Remove `igshid`
 - [ ] Preserve path, hash, and non-tracking parameters
 - [ ] Normalize output only as needed
 - [ ] Document cleaning rules
@@ -76,8 +77,8 @@
 
 - [ ] Improve shortcut naming and documentation
 - [ ] Add extension icons
-- [ ] Add system notifications for success and failure
-- [ ] Replace console.log feedback with notifications where appropriate
+- [x] Add system notifications for success and failure
+- [x] Replace console.log feedback with notifications where appropriate
 - [ ] Review permissions and reduce if possible
 - [ ] Clean code structure
 - [ ] Improve error messages
