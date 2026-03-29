@@ -1,12 +1,21 @@
 const exactMatchRemovableParams = new Set(["fbclid", "gclid", "dclid", "igshid"]);
 const prefixRemovableParams = ["utm_", "mc_"];
+const domainSpecificRemovableParams = {
+  "youtube.com": new Set(["si"]),
+  "www.youtube.com": new Set(["si"]),
+  "youtu.be": new Set(["si"]),
+};
 
-function shouldRemoveParam(paramName) {
+function shouldRemoveParam(paramName, hostname) {
   if (exactMatchRemovableParams.has(paramName)) {
     return true;
   }
 
-  return prefixRemovableParams.some((prefix) => paramName.startsWith(prefix));
+  if (prefixRemovableParams.some((prefix) => paramName.startsWith(prefix))) {
+    return true;
+  }
+
+  return domainSpecificRemovableParams[hostname]?.has(paramName) ?? false;
 }
 
 if (typeof globalThis !== "undefined") {

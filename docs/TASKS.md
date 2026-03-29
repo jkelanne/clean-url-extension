@@ -42,6 +42,8 @@
 - [ ] Preserve path, hash, and non-tracking parameters
 - [ ] Normalize output only as needed
 - [ ] Document cleaning rules
+- [x] Add domain-specific rules
+    - [x] Remove `si` parameter from `youtube.com` URLs
 
 ## Phase 4 - Manual testing
 

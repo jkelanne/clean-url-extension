@@ -50,6 +50,30 @@ test("removes igshid param", () => {
   assert.equal(cleanUrl(input), expected);
 });
 
+test("removes si param on youtube.com", () => {
+  const input = "https://youtube.com/watch?v=abc123&si=sharetoken";
+  const expected = "https://youtube.com/watch?v=abc123";
+  assert.equal(cleanUrl(input), expected);
+});
+
+test("removes si param on www.youtube.com", () => {
+  const input = "https://www.youtube.com/watch?v=abc123&si=sharetoken";
+  const expected = "https://www.youtube.com/watch?v=abc123";
+  assert.equal(cleanUrl(input), expected);
+});
+
+test("removes si param on youtu.be", () => {
+  const input = "https://youtu.be/abc123?si=sharetoken";
+  const expected = "https://youtu.be/abc123";
+  assert.equal(cleanUrl(input), expected);
+});
+
+test("does not remove si param on non-youtube domains", () => {
+  const input = "https://example.com/page?si=keepme&ref=ok";
+  const expected = "https://example.com/page?si=keepme&ref=ok";
+  assert.equal(cleanUrl(input), expected);
+});
+
 test("preserves hash fragment", () => {
   const input = "https://example.com/page?utm_source=x&ref=ok#section-2";
   const expected = "https://example.com/page?ref=ok#section-2";

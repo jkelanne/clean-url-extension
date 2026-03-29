@@ -9,9 +9,10 @@ if (typeof module !== "undefined" && module.exports) {
 
 function cleanUrl(url) {
   const parsedUrl = new URL(url);
+  const hostname = parsedUrl.hostname;
 
   for (const key of [...parsedUrl.searchParams.keys()]) {
-    if (shouldRemoveParamFn(key)) {
+    if (shouldRemoveParamFn(key, hostname)) {
       parsedUrl.searchParams.delete(key);
     }
   }
